@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/19/2022 4:45:24 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-5MFPN69E"
+  DTS:CreatorName="LAPTOP-5MFPN69E\acer"
+  DTS:DTSID="{EC1A9997-2B75-4452-891D-1D40FD47509D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{0EEFC55F-79A2-4874-8302-71850CCAA6A2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4D484C45-5BAE-4813-8AF4-3082589C1F43}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MainFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\acer\OneDrive\Рабочий стол\ssistables\vid38\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{05605D49-6587-4B9F-AC8F-2AFCFCCE10F3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="MONTH(GETDATE()) == 1 ? &quot;Jan&quot; :&#xA;MONTH(GETDATE()) == 2 ? &quot;Feb&quot; :&#xA;MONTH(GETDATE()) == 3 ? &quot;Mar&quot; :&#xA;MONTH(GETDATE()) == 4 ? &quot;Apr&quot; :&#xA;MONTH(GETDATE()) == 5 ? &quot;May&quot; :&#xA;MONTH(GETDATE()) == 6 ? &quot;Jun&quot; :&#xA;MONTH(GETDATE()) == 7 ? &quot;Jul&quot; :&#xA;MONTH(GETDATE()) == 8 ? &quot;Aug&quot; :&#xA;MONTH(GETDATE()) == 9 ? &quot;Sep&quot; :&#xA;MONTH(GETDATE()) == 10 ? &quot;Oct&quot; :&#xA;MONTH(GETDATE()) == 11 ? &quot;Nov&quot; :&quot;Dec&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MonthName">
+      <DTS:VariableValue
+        DTS:DataType="8">Dec</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3A43D322-54FB-4503-94D3-B3762A3DCE2D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::MainFolder]+(DT_STR,4,1252)YEAR( GETDATE())+&quot;\\&quot;+ @[User::MonthName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="NewFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\acer\OneDrive\Рабочий стол\ssistables\vid38\2022\Dec</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\File System Task"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="File System Task"
+      DTS:DTSID="{DAC9571B-F1A3-43EE-9F34-DDCFF0E91C34}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="File System Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="CreateDirectory"
+          TaskOverwriteDestFile="True"
+          TaskSourcePath="User::NewFolder"
+          TaskIsSourceVariable="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\File System Task"
+          TopLeft="339.999986489614,128.266667686039" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
